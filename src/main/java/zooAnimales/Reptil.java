@@ -27,7 +27,7 @@ public class Reptil extends Animal {
 	}
 
 	public String movimiento() {
-		return "rectar";
+		return "reptar";
 	}
 
 	public static Reptil crearIguana(String nombre, int edad, String genero) {

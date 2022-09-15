@@ -15,7 +15,6 @@ public class Animal {
 		this.edad = edad;
 		this.habitat = habitad;
 		this.genero = genero;
-		this.zona = zona;
 
 		totalAnimales++;
 	}
@@ -38,12 +37,13 @@ public class Animal {
 	public String toString() {
 		// TODO Auto-generated method stub
 		if (zona != null) {
-			return "“Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat
-					+ "mi genero es " + genero + ", la zona en la que me ubico es " + zona + ", en el " + zona.getZoo();
+			return "Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat
+					+ "y  mi genero es " + genero + ", la zona en la que me ubico es " + zona + ", en el "
+					+ zona.getZoo();
 
 		} else {
-			return "“Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat
-					+ "mi genero es " + genero;
+			return "Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat
+					+ " y mi genero es " + genero;
 		}
 
 	}
