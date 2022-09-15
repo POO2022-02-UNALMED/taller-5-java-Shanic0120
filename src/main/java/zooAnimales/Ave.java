@@ -1,46 +1,59 @@
 package zooAnimales;
 
-import java.util.Arrays;
-
-import gestion.Zona;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ave extends Animal {
-	private static Ave[] listado;
+	private static List<Ave> listado = new ArrayList<>();
 	public static int halcones;
 	public static int aguilas;
 	private String colorPlumas;
 
-	public Ave(String nombre, int edad, String habitad, String genero, Zona zona, String colorPlumas) {
-		super(nombre, edad, habitad, genero, zona);
+	public Ave(String nombre, int edad, String habitad, String genero, String colorPlumas) {
+		super(nombre, edad, habitad, genero);
 		this.colorPlumas = colorPlumas;
+		listado.add(this);
 	}
 
 	public Ave() {
 		// TODO Auto-generated constructor stub
+		this(null, 0, null, null, null);
 	}
 
 	public static int cantidadAves() {
-		return halcones + aguilas;
+		return listado.size() + 1;
 	}
 
 	public String movimiento() {
 		return "volar";
 	}
 
-	public Ave creaHalcon(String nombre, int edad, String genero, Zona zona) {
+	public static Ave crearHalcon(String nombre, int edad, String genero) {
 		halcones++;
 
-		Ave a = new Ave(nombre, edad, "montanas", genero, zona, "cafe glorioso");
-		listado = Arrays.copyOf(listado, listado.length);
-		listado[listado.length - 1] = a;
+		Ave a = new Ave(nombre, edad, "montanas", genero, "cafe glorioso");
 		return a;
 	}
 
-	public Ave crearAguila(String nombre, int edad, String genero, Zona zona) {
+	public static Ave crearAguila(String nombre, int edad, String genero) {
 		aguilas++;
-		Ave a = new Ave(nombre, edad, "montanas", genero, zona, "blanco y amarillo");
-		listado = Arrays.copyOf(listado, listado.length);
-		listado[listado.length - 1] = a;
+		Ave a = new Ave(nombre, edad, "montanas", genero, "blanco y amarillo");
 		return a;
+	}
+
+	public static List<Ave> getListado() {
+		return listado;
+	}
+
+	public static void setListado(List<Ave> listado) {
+		Ave.listado = listado;
+	}
+
+	public String getColorPlumas() {
+		return colorPlumas;
+	}
+
+	public void setColorPlumas(String colorPlumas) {
+		this.colorPlumas = colorPlumas;
 	}
 }

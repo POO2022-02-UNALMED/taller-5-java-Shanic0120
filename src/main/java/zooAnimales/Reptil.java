@@ -1,48 +1,68 @@
 package zooAnimales;
 
-import java.util.Arrays;
-
-import gestion.Zona;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reptil extends Animal {
-	private static Reptil[] listado;
+	private static List<Reptil> listado = new ArrayList<>();
 	public static int iguanas;
 	public static int serpientes;
 	private String colorEscamas;
 	private int largoCola;
 
-	public Reptil(String nombre, int edad, String habitad, String genero, Zona zona, String colorEscamas,
-			int largoCola) {
-		super(nombre, edad, habitad, genero, zona);
+	public Reptil(String nombre, int edad, String habitad, String genero, String colorEscamas, int largoCola) {
+		super(nombre, edad, habitad, genero);
 		this.colorEscamas = colorEscamas;
 		this.largoCola = largoCola;
+		listado.add(this);
 	}
 
 	public Reptil() {
 		// TODO Auto-generated constructor stub
+		this(null, 0, null, null, null, 0);
 	}
 
 	public static int cantidadReptiles() {
-		return serpientes + iguanas;
+		return listado.size() + 1;
 	}
 
 	public String movimiento() {
 		return "rectar";
 	}
 
-	public Reptil crearIguana(String nombre, int edad, String genero, Zona zona) {
+	public static Reptil crearIguana(String nombre, int edad, String genero) {
 		iguanas++;
-		Reptil a = new Reptil(nombre, edad, "humedal", genero, zona, "verde", 3);
-		listado = Arrays.copyOf(listado, listado.length);
-		listado[listado.length - 1] = a;
+		Reptil a = new Reptil(nombre, edad, "humedal", genero, "verde", 3);
 		return a;
 	}
 
-	public Reptil crearSerpiente(String nombre, int edad, String genero, Zona zona) {
+	public static Reptil crearSerpiente(String nombre, int edad, String genero) {
 		serpientes++;
-		Reptil a = new Reptil(nombre, edad, "jungla", genero, zona, "blanco", 1);
-		listado = Arrays.copyOf(listado, listado.length);
-		listado[listado.length - 1] = a;
+		Reptil a = new Reptil(nombre, edad, "jungla", genero, "blanco", 1);
 		return a;
+	}
+
+	public static List<Reptil> getListado() {
+		return listado;
+	}
+
+	public static void setListado(List<Reptil> listado) {
+		Reptil.listado = listado;
+	}
+
+	public String getColorEscamas() {
+		return colorEscamas;
+	}
+
+	public void setColorEscamas(String colorEscamas) {
+		this.colorEscamas = colorEscamas;
+	}
+
+	public int getLargoCola() {
+		return largoCola;
+	}
+
+	public void setLargoCola(int largoCola) {
+		this.largoCola = largoCola;
 	}
 }

@@ -1,13 +1,14 @@
 package gestion;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Zoologico {
 	private String nombre;
 	private String ublicacion;
-	private Zona[] zonas;
+	private List<Zona> zonas = new ArrayList<>();
 
-	public Zoologico(String nombre, String ubicacion, Zona[] zonas) {
+	public Zoologico(String nombre, String ubicacion) {
 		// TODO Auto-generated constructor stub
 		this.nombre = nombre;
 		this.ublicacion = ubicacion;
@@ -15,13 +16,12 @@ public class Zoologico {
 	}
 
 	public Zoologico() {
-		super();
+
 	}
 
 	public void agregarZonas(Zona zona) {
 		// TODO Auto-generated method stub
-		this.zonas = Arrays.copyOf(this.zonas, this.zonas.length);
-		this.zonas[this.zonas.length - 1] = zona;
+		zonas.add(zona);
 	}
 
 	public int cantidadTotalAnimales() {
@@ -32,4 +32,29 @@ public class Zoologico {
 		}
 		return x;
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getUblicacion() {
+		return ublicacion;
+	}
+
+	public void setUblicacion(String ublicacion) {
+		this.ublicacion = ublicacion;
+	}
+
+	public List<Zona> getZona() {
+		return zonas;
+	}
+
+	public void setZonas(List<Zona> zonas) {
+		this.zonas = zonas;
+	}
+
 }
